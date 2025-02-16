@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import styles from "../styles/UploadComponent.module.css";
+import Image from "next/image";
 const API_BASE_URL = process.env.BACKEND_URL || "http://localhost:8000";
-console.log(process.env.BACKEND_URL)
 
 export default function UploadComponent() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -44,7 +44,7 @@ export default function UploadComponent() {
       } else {
         setError(data.message || "Upload failed.");
       }
-    } catch (err) {
+    } catch {
       setError("Network error. Try again.");
     } finally {
       setLoading(false);
@@ -63,6 +63,7 @@ export default function UploadComponent() {
         <button onClick={handleUpload} className={styles.submitBtn}>
           Submit
         </button>
+        {loading && <p className="loading-text">Uploading...</p>}
       </div>
 
       {error && <p className={styles.errorText}>{error}</p>}
@@ -71,7 +72,7 @@ export default function UploadComponent() {
         <div className={styles.resultSection}>
           <p className={styles.numberText}>Number of human: {number}</p>
           <h2>Detected Image:</h2>
-          <img src={preview} alt="Detected" className={styles.detectedImage} />
+          <Image src={preview} alt="Detected" className={styles.detectedImage} />
         </div>
       )}
     </div>

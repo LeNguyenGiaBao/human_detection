@@ -62,3 +62,8 @@
     font-weight: bold;
     margin-top: 10px;
 }
+.loading-text {
+    color: blue;
+    font-size: 16px;
+    margin-top: 10px;
+}
