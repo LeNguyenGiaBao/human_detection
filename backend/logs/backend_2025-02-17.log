@@ -1,0 +1,22 @@
+2025-02-17 03:19:51,399 - INFO - Received file: img_3.jpg
+2025-02-17 03:23:35,848 - INFO - Received file: img_3.jpg
+2025-02-17 03:23:37,854 - ERROR - Error processing file: Logger.log() missing 1 required positional argument: 'msg'
+2025-02-17 03:25:02,605 - INFO - Received file: img_3.jpg
+2025-02-17 03:30:01,144 - INFO - Received file: img_3.jpg
+2025-02-17 03:30:02,697 - INFO - Request processed successfully
+2025-02-17 03:33:27,405 - INFO - Received file: img_3.jpg
+2025-02-17 03:33:27,729 - INFO - Request processed successfully
+2025-02-17 03:38:28,712 - INFO - Received file: img_3.jpg
+2025-02-17 03:38:28,904 - INFO - Request processed successfully
+2025-02-17 03:51:48,876 - INFO - Received file: constants.py
+2025-02-17 03:51:48,882 - WARNING - Client error: Invalid input file
+2025-02-17 03:51:58,804 - INFO - Received file: img_1.jpg
+2025-02-17 03:51:58,979 - INFO - Request processed successfully
+2025-02-17 04:05:03,964 - INFO - Received file: img_3.jpg
+2025-02-17 04:05:04,262 - INFO - Request processed successfully
+2025-02-17 04:07:12,207 - INFO - Received file: img_3.jpg
+2025-02-17 04:07:12,389 - INFO - Request processed successfully
+2025-02-17 04:07:27,502 - INFO - Received file: img_3.jpg
+2025-02-17 04:07:27,785 - INFO - Request processed successfully
+2025-02-17 04:07:33,513 - INFO - Received file: img_3.jpg
+2025-02-17 04:07:33,689 - INFO - Request processed successfully
