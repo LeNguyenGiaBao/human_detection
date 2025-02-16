@@ -40,7 +40,7 @@ docker-compose down
 
 ---
 
-## 5️⃣ Logging System
+## Logging System
 
 Logs are stored in `backend/logs/app.log`. You can check logs by running:
 
