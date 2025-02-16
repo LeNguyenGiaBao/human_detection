@@ -4,19 +4,33 @@ import os
 import cv2
 import numpy as np
 from constants import INPUT_REQUIRED, INVALID_FILE, MODEL_PATH
+from database import SessionLocal, init_db, save_detection
 from dotenv import load_dotenv
-from fastapi import FastAPI, File, Request, UploadFile
+from fastapi import Depends, FastAPI, File, Request, UploadFile
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from model import detect
 from response import ResponseFormatter
+from sqlalchemy.orm import Session
 from ultralytics import YOLO
+from utils import gen_filename
 
 load_dotenv()
 UPLOAD_DIR = "uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 model = YOLO(MODEL_PATH)
+init_db()
+
+
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
@@ -44,7 +58,7 @@ async def get_image_from_request(file):
 
 
 @app.post("/upload")
-async def upload_file(file: UploadFile = File(None)):
+async def upload_file(file: UploadFile = File(None), db: Session = Depends(get_db)):
     try:
         if file is None:
             return ResponseFormatter.error(INPUT_REQUIRED)
@@ -54,6 +68,9 @@ async def upload_file(file: UploadFile = File(None)):
             return ResponseFormatter.error(INVALID_FILE)
 
         result_image, count = detect(model, image)
+        result_path = os.path.join(UPLOAD_DIR, gen_filename())
+        cv2.imwrite(result_path, result_image)
+        save_detection(db, count, result_path)
         _, buffer = cv2.imencode(".jpg", result_image)
         base64_image = base64.b64encode(buffer).decode("utf-8")
         return ResponseFormatter.success({"count": count, "image": base64_image})
