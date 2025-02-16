@@ -4,17 +4,27 @@ import os
 import cv2
 import numpy as np
 from constants import INPUT_REQUIRED, INVALID_FILE, MODEL_PATH
+from dotenv import load_dotenv
 from fastapi import FastAPI, File, Request, UploadFile
 from fastapi.exceptions import RequestValidationError
+from fastapi.middleware.cors import CORSMiddleware
 from model import detect
 from response import ResponseFormatter
 from ultralytics import YOLO
 
+load_dotenv()
 UPLOAD_DIR = "uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 model = YOLO(MODEL_PATH)
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[os.environ.get("FRONTEND_URL", "http://localhost:3000")],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.exception_handler(RequestValidationError)
