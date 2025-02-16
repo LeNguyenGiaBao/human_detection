@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Force white background */
+body {
+  background-color: white !important;
+  /* Always white */
+  color: black;
+  /* Ensure text is readable */
+}
+
+/* Optional: Ensure all components have a proper background */
+* {
+  background-color: transparent;
+}
