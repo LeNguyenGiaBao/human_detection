@@ -3,7 +3,7 @@ import os
 
 import cv2
 import numpy as np
-from constants import INPUT_REQUIRED, INVALID_FILE, LOG_DIR, MODEL_PATH, UPLOAD_DIR
+from constants import INPUT_REQUIRED, INVALID_FILE, MODEL_PATH, UPLOAD_DIR
 from database import SessionLocal, init_db, save_detection
 from dotenv import load_dotenv
 from fastapi import Depends, FastAPI, File, Request, UploadFile
@@ -18,7 +18,6 @@ from utils import gen_filename
 
 load_dotenv()
 os.makedirs(UPLOAD_DIR, exist_ok=True)
-os.makedirs(LOG_DIR, exist_ok=True)
 
 model = YOLO(MODEL_PATH)
 init_db()

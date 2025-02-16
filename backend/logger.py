@@ -1,7 +1,11 @@
 import logging
+import os
 import sys
 from datetime import datetime
 
+from constants import LOG_DIR
+
+os.makedirs(LOG_DIR, exist_ok=True)
 logger = logging.getLogger("backend_logger")
 logger.setLevel(logging.DEBUG)
 
