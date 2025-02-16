@@ -4,3 +4,6 @@ MODEL_PATH = "./model/yolov5n.pt"
 
 INVALID_FILE = "Invalid input file"
 INPUT_REQUIRED = "Input file is required"
+
+UPLOAD_DIR = "uploads"
+LOG_DIR = "logs"
