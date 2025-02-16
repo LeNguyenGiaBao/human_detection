@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import styles from "../styles/UploadComponent.module.css";
-
+const API_BASE_URL = process.env.BACKEND_URL || "http://localhost:8000";
+console.log(process.env.BACKEND_URL)
 
 export default function UploadComponent() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -30,13 +31,12 @@ export default function UploadComponent() {
     setError(null);
 
     try {
-      const response = await fetch("http://localhost:8000/upload/", {
+      const response = await fetch(`${API_BASE_URL}/upload`, {
         method: "POST",
         body: formData,
       });
 
       const data = await response.json();
-      console.log("API Response:", data);
 
       if (response.ok) {
         setPreview(`data:image/jpeg;base64,${data.data.image}`);
