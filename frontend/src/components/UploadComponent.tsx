@@ -72,7 +72,7 @@ export default function UploadComponent() {
         <div className={styles.resultSection}>
           <p className={styles.numberText}>Number of human: {number}</p>
           <h2>Detected Image:</h2>
-          <Image src={preview} alt="Detected" className={styles.detectedImage} />
+          <Image src={preview} alt="Detected" width={800} height={800} className={styles.detectedImage} />
         </div>
       )}
     </div>
