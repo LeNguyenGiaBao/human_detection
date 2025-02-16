@@ -1,0 +1,50 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "5434:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - human_detection
+
+  backend:
+    build: ./backend
+    container_name: human_detection_backend
+    restart: always
+    depends_on:
+      - db
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    networks:
+      - human_detection
+
+  frontend:
+    build: ./frontend
+    container_name: human_detection_frontend
+    restart: always
+    depends_on:
+      - backend
+    env_file:
+      - .env
+    ports:
+      - "3002:3000"
+    networks:
+      - human_detection
+
+volumes:
+  postgres_data:
+
+networks:
+  human_detection:
+    driver: bridge
