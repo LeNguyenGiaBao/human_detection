@@ -4,7 +4,7 @@ import uuid
 
 import psycopg2
 from dotenv import load_dotenv
-from sqlalchemy import Column, DateTime, Integer, String, create_engine
+from sqlalchemy import Column, DateTime, Integer, String, create_engine, desc
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
@@ -76,7 +76,7 @@ def save_detection(db, num_boxes: int, visualized_path: str):
 
 
 def get_all(db):
-    query = db.query(DetectionResult).all()
+    query = db.query(DetectionResult).order_by(desc(DetectionResult.timestamp)).all()
     return query
 
 
