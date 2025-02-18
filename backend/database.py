@@ -73,3 +73,13 @@ def save_detection(db, num_boxes: int, visualized_path: str):
     db.commit()
     db.refresh(detection)
     return detection
+
+
+def get_all(db):
+    query = db.query(DetectionResult).all()
+    return query
+
+
+def get_one(db, id):
+    query = db.query(DetectionResult).filter(DetectionResult.id == id).first()
+    return query
