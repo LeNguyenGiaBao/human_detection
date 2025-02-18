@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   env: {
     BACKEND_URL: process.env.BACKEND_URL,
+    SECRET_KEY: process.env.SECRET_KEY,
   },
 };
 

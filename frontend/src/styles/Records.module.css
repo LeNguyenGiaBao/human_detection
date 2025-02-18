@@ -1,0 +1,58 @@
+.container {
+    width: 100%;
+    overflow-x: auto;
+    margin: 2rem 0;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.headerRow {
+    background-color: #0070f3;
+    color: white;
+}
+
+.headerCell {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+}
+
+.row {
+    border-bottom: 1px solid #e0e0e0;
+    transition: background-color 0.2s ease;
+}
+
+.row:hover {
+    background-color: #f8f9fa;
+}
+
+.cell {
+    padding: 1rem;
+    font-size: 0.925rem;
+    color: #333;
+}
+
+.link {
+    color: #0070f3;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.link:hover {
+    color: #005bb5;
+    text-decoration: underline;
+}
+
+.emptyState {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+}

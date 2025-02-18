@@ -1,0 +1,50 @@
+.container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+.backButton {
+    padding: 0.8rem 1.5rem;
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-bottom: 1.5rem;
+}
+
+.backButton:hover {
+    background-color: #005bb5;
+}
+
+.detailItem {
+    padding: 1rem;
+    background-color: #f8f9fa;
+}
+
+.detailLabel {
+    font-weight: 600;
+    color: #0070f3;
+    margin-right: 0.5rem;
+}
+
+.detailValue {
+    color: #333;
+}
+
+.imageContainer {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.detectedImage {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 1rem;
+}

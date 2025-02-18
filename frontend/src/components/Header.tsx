@@ -1,14 +1,14 @@
-import React from "react";
-import styles from "@/styles/Header.module.css";
+import Link from 'next/link'
+import styles from '@/styles/Header.module.css'
 
-const Header: React.FC = () => {
-  return (
-    <header className={styles.header}>
-      <div className={styles.container}>
-        <h1 className={styles.title}>Human Detection</h1>
-      </div>
-    </header>
-  );
-};
+const Header = () => (
+  <header className={styles.header}>
+    <div className={styles.container}>
+      <Link href="/" passHref legacyBehavior>
+        <a className={styles.title}>Human Detection</a>
+      </Link>
+    </div>
+  </header>
+)
 
-export default Header;
+export default Header

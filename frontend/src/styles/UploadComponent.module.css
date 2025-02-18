@@ -1,69 +1,100 @@
 .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 0 2rem 0;
+    background-color: #ffffff;
+    margin: 2rem auto;
     max-width: 800px;
-    /* Set a reasonable width */
-    margin: 50px auto;
-    /* Center it horizontally */
-    padding: 20px;
-    text-align: center;
-    background: #f8f9fa;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .uploadSection {
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.fileInputWrapper {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
 }
 
 .fileInput {
-    border: 2px dashed #6c757d;
-    padding: 10px;
-    border-radius: 6px;
-    cursor: pointer;
     width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #0070f3;
+    border-radius: 6px;
+    background-color: #f8f9fa;
+    font-family: inherit;
+    font-size: 1rem;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.fileInput:hover {
+    border-color: #005bb5;
+    background-color: #f1f3f5;
+}
+
+.fileInput:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 112, 243, 0.3);
 }
 
 .submitBtn {
-    background: linear-gradient(45deg, #4f46e5, #9333ea);
+    padding: 0.8rem 1.5rem;
+    background-color: #0070f3;
     color: white;
-    padding: 10px 16px;
-    border-radius: 6px;
-    margin-top: 10px;
-    cursor: pointer;
-    transition: opacity 0.3s;
-    width: 100%;
     border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: 100%;
+    max-width: 300px;
 }
 
 .submitBtn:hover {
-    opacity: 0.8;
+    background-color: #005bb5;
+}
+
+.submitBtn:disabled {
+    background-color: #adb5bd;
+    cursor: not-allowed;
+}
+
+.loadingText {
+    color: #0070f3;
+    font-size: 1rem;
+    margin-top: 1rem;
 }
 
 .errorText {
-    color: red;
-    margin-top: 10px;
+    color: #e03131;
+    font-size: 1rem;
+    margin-top: 1rem;
+    text-align: center;
 }
 
 .resultSection {
-    margin-top: 20px;
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.detectedImage {
-    max-width: 100%;
-    border-radius: 6px;
-    margin-top: 10px;
+    width: 100%;
+    text-align: center;
 }
 
 .numberText {
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 10px;
+    font-size: 1.25rem;
+    color: #0070f3;
+    font-weight: 600;
 }
-.loading-text {
-    color: blue;
-    font-size: 16px;
-    margin-top: 10px;
+
+.detectedImage {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }

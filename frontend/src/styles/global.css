@@ -1,0 +1,38 @@
+html,
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    color: black;
+}
+* {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#__next {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    background-color: #0070f3;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.main {
+    padding: 20px;
+}
