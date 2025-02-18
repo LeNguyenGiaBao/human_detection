@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 import MainLayout from '../../components/MainLayout'
 import { fetchRecordById } from '../../utils'
 import styles from '@/styles/RecordDetail.module.css'
+import Image from 'next/image'
 
 export default function RecordDetail() {
   const router = useRouter()
@@ -47,9 +48,11 @@ export default function RecordDetail() {
 
         {record.image && (
           <div className={styles.imageContainer}>
-            <img
+            <Image
               src={`data:image/jpeg;base64,${record.image}`}
               alt="Detected Image"
+              width={800}
+              height={800}
               className={styles.detectedImage}
             />
           </div>
