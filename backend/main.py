@@ -25,7 +25,7 @@ from model import detect
 from response import ResponseFormatter
 from sqlalchemy.orm import Session
 from ultralytics import YOLO
-from utils import gen_filename
+from utils import gen_filename, utc_to_utc_plus_7
 
 load_dotenv()
 os.makedirs(UPLOAD_DIR, exist_ok=True)
@@ -101,7 +101,7 @@ async def get_records(secret: str, db: Session = Depends(get_db)):
         result = [
             {
                 "id": str(record.id),
-                "timestamp": str(record.timestamp),
+                "timestamp": str(utc_to_utc_plus_7(record.timestamp)),
                 "num_boxes": record.num_boxes,
                 "image_path": record.image_path,
             }
@@ -130,7 +130,7 @@ async def get_record(id: str, secret: str, db: Session = Depends(get_db)):
     return ResponseFormatter.success(
         {
             "id": str(record.id),
-            "timestamp": str(record.timestamp),
+            "timestamp": str(utc_to_utc_plus_7(record.timestamp)),
             "num_boxes": record.num_boxes,
             "image": base64_image,
         }
