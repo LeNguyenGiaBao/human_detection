@@ -29,7 +29,7 @@ services:
     networks:
       - human_detection
     volumes:
-      - uploads:/app/uploads
+      - ./uploads:/app/uploads
 
   frontend:
     build: ./frontend
