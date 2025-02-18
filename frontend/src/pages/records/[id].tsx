@@ -5,10 +5,17 @@ import { fetchRecordById } from '../../utils'
 import styles from '@/styles/RecordDetail.module.css'
 import Image from 'next/image'
 
+interface DetectionRecord {
+  id: string
+  timestamp: string
+  num_boxes: number
+  image?: string
+}
+
 export default function RecordDetail() {
   const router = useRouter()
   const { id } = router.query
-  const [record, setRecord] = useState<any>(null)
+  const [record, setRecord] = useState<DetectionRecord | null>(null)
 
   useEffect(() => {
     if (id) {
