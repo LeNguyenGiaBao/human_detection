@@ -1,8 +1,11 @@
 import cv2
 from constants import MODEL_PATH, PERSON_CLASS_INDEX, THRESHOLD_DETECT
+from ultralytics import YOLO
+
+model = YOLO(MODEL_PATH)
 
 
-def detect(model, image):
+def detect(image):
     results = model(image)
     num_person = 0
 
@@ -27,11 +30,7 @@ def detect(model, image):
 
 
 if __name__ == "__main__":
-    from ultralytics import YOLO
-
-    model = YOLO(MODEL_PATH)
-
     image_path = "./test_data/images/img_3.jpg"
     image = cv2.imread(image_path)
-    result, count_person = detect(model, image)
+    result, count_person = detect(image)
     cv2.imwrite("./test_data/result_images/result.jpg", result)
