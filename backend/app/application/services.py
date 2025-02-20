@@ -1,4 +1,5 @@
 from app.domain.models import Record
+from sqlalchemy import desc
 from sqlalchemy.orm import Session
 
 
@@ -13,7 +14,7 @@ class RecordService:
 
     @staticmethod
     def get_all_records(db: Session):
-        return db.query(Record).all()
+        return db.query(Record).order_by(desc(Record.timestamp)).all()
 
     @staticmethod
     def get_record_by_id(db: Session, record_id: str):
