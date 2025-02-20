@@ -2,7 +2,7 @@ import { API_BASE_URL, SECRET_KEY } from './constants'
 
 export async function fetchRecords() {
   try {
-    const response = await fetch(`${API_BASE_URL}/records?secret=${SECRET_KEY}`)
+    const response = await fetch(`${API_BASE_URL}/record?secret=${SECRET_KEY}`)
     const data = await response.json()
     if (response.ok) {
       return data.data
@@ -16,7 +16,7 @@ export async function fetchRecords() {
 export async function fetchRecordById(id: string) {
   try {
     const response = await fetch(
-      `${API_BASE_URL}/records/${id}?secret=${SECRET_KEY}`
+      `${API_BASE_URL}/record/${id}?secret=${SECRET_KEY}`
     )
     const data = await response.json()
     if (response.ok) {
@@ -33,7 +33,7 @@ export async function uploadFile(file: File) {
   formData.append('file', file)
 
   try {
-    const response = await fetch(`${API_BASE_URL}/upload`, {
+    const response = await fetch(`${API_BASE_URL}/record`, {
       method: 'POST',
       body: formData,
     })
