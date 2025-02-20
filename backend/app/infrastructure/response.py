@@ -1,5 +1,5 @@
+from app.infrastructure.logger import logger
 from fastapi.responses import JSONResponse
-from logger import logger
 
 
 class ResponseFormatter:
@@ -7,12 +7,7 @@ class ResponseFormatter:
     def success(data=None):
         logger.info("Request processed successfully")
         return JSONResponse(
-            content={
-                "status": 200,
-                "message": "success",
-                "data": data if data is not None else {},
-            },
-            status_code=200,
+            content={"status": 200, "message": "success", "data": data}, status_code=200
         )
 
     @staticmethod
